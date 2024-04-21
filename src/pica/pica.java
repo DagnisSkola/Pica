@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class pica {
 	public static void main(String[] args) {
-		String[] darbibas = {"u", "Nolasīt failu", "Apturēt programmu"};
+		String[] darbibas = {"u", "lu", "Apturēt programmu"};
 		String izvele;
 		
 		do {
