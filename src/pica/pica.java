@@ -21,7 +21,6 @@ public class pica {
 				break;
 				
 			case "Apturēt programmu":
-				JOptionPane.showMessageDialog(null, "Programma apturēta!","Paziņojums", JOptionPane.WARNING_MESSAGE);
 			}
 		}while(!izvele.equals("Apturēt programu"));
 	}
