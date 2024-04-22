@@ -59,8 +59,7 @@ public class PicaFrame extends JFrame {
 		btnNewButton.setToolTipText("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PicaPasutijums order = new PicaPasutijums();
-				order.Pasutijums();
+				PicaPasutijums.Pasutijums();
 				PicaFrame.this.setVisible(false);
 			}
 		});

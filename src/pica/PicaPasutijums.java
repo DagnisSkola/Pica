@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PicaPasutijums extends JFrame {
 
@@ -121,5 +124,21 @@ public class PicaPasutijums extends JFrame {
 		rdbtnNewRadioButton_1_1.setFont(new Font("Ink Free", Font.BOLD, 15));
 		rdbtnNewRadioButton_1_1.setBounds(211, 250, 109, 23);
 		contentPane.add(rdbtnNewRadioButton_1_1);
+		
+		JButton btnNewButton = new JButton("Back");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PicaFrame.main(null);
+				PicaPasutijums.this.setVisible(false);
+			}
+		});
+		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 20));
+		btnNewButton.setBounds(209, 439, 111, 53);
+		contentPane.add(btnNewButton);
+		
+		JButton btnContinue = new JButton("Continue");
+		btnContinue.setFont(new Font("Ink Free", Font.BOLD, 20));
+		btnContinue.setBounds(338, 439, 111, 53);
+		contentPane.add(btnContinue);
 	}
 }
