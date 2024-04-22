@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 
@@ -20,6 +21,7 @@ public class PicaPasutijums extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private double topping = 0;
+	ArrayList<Object> Picas = new ArrayList<>();
 	
 
 	/**
@@ -68,17 +70,18 @@ public class PicaPasutijums extends JFrame {
 		lblSize.setBounds(196, 121, 111, 47);
 		contentPane.add(lblSize);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Cheese ");
-		chckbxNewCheckBox.setFont(new Font("Ink Free", Font.BOLD, 15));
-		chckbxNewCheckBox.setBounds(34, 170, 119, 23);
-		contentPane.add(chckbxNewCheckBox);
-		chckbxNewCheckBox.addActionListener(new ActionListener() {
+		JCheckBox chckbxCheese = new JCheckBox("Cheese ");
+		chckbxCheese.setFont(new Font("Ink Free", Font.BOLD, 15));
+		chckbxCheese.setBounds(34, 170, 119, 23);
+		contentPane.add(chckbxCheese);
+		chckbxCheese.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
-		        if (chckbxNewCheckBox.isSelected()) {
+		        if (chckbxCheese.isSelected()) {
 		            topping=topping+0.50;
 		        } else {
 		            topping=topping-0.50;
 		        }
+		        System.out.println(topping);
 		    }
 		});
 		
@@ -86,41 +89,121 @@ public class PicaPasutijums extends JFrame {
 		chckbxSauce.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxSauce.setBounds(34, 198, 119, 23);
 		contentPane.add(chckbxSauce);
+		chckbxSauce.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxSauce.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		        System.out.println(topping);
+		    }
+		});
 		
 		JCheckBox chckbxPepperoni = new JCheckBox("Pepperoni");
 		chckbxPepperoni.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxPepperoni.setBounds(34, 224, 97, 23);
 		contentPane.add(chckbxPepperoni);
+		chckbxPepperoni.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxPepperoni.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		        System.out.println(topping);
+		    }
+		});
 		
 		JCheckBox chckbxSausage = new JCheckBox("Sausage");
 		chckbxSausage.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxSausage.setBounds(34, 250, 97, 23);
 		contentPane.add(chckbxSausage);
+		chckbxSausage.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxSausage.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		        System.out.println(topping);
+		    }
+		});
 		
 		JCheckBox chckbxHam = new JCheckBox("Ham");
 		chckbxHam.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxHam.setBounds(34, 276, 97, 23);
 		contentPane.add(chckbxHam);
+		chckbxHam.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxHam.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		        System.out.println(topping);
+		    }
+		});
 		
 		JCheckBox chckbxMushrooms = new JCheckBox("Mushrooms");
 		chckbxMushrooms.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxMushrooms.setBounds(34, 302, 101, 23);
 		contentPane.add(chckbxMushrooms);
+		chckbxMushrooms.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxMushrooms.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		        System.out.println(topping);
+		    }
+		});
 		
 		JCheckBox chckbxGreenPeppers = new JCheckBox("Green Peppers");
 		chckbxGreenPeppers.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxGreenPeppers.setBounds(34, 328, 131, 23);
 		contentPane.add(chckbxGreenPeppers);
+		chckbxGreenPeppers.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxGreenPeppers.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		        System.out.println(topping);
+		    }
+		});
 		
 		JCheckBox chckbxPineapple = new JCheckBox("Pineapple");
 		chckbxPineapple.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxPineapple.setBounds(34, 354, 131, 23);
 		contentPane.add(chckbxPineapple);
+		chckbxPineapple.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxPineapple.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		        System.out.println(topping);
+		    }
+		});
 		
 		JCheckBox chckbxBlackOlives = new JCheckBox("Black Olives");
 		chckbxBlackOlives.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxBlackOlives.setBounds(34, 380, 131, 23);
 		contentPane.add(chckbxBlackOlives);
+		chckbxBlackOlives.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxBlackOlives.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		        System.out.println(topping);
+		    }
+		});
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("20 cm 7.99€");
 		rdbtnNewRadioButton.setFont(new Font("Ink Free", Font.BOLD, 15));
