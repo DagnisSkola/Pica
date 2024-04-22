@@ -13,6 +13,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ButtonGroup;
 
 public class PicaPasutijums extends JFrame {
 
@@ -49,14 +50,14 @@ public class PicaPasutijums extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Create an order :");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD, 30));
+		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD, 35));
 		lblNewLabel.setBounds(93, 30, 451, 69);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblToppings = new JLabel("Toppings :");
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setFont(new Font("Ink Free", Font.BOLD, 20));
-		lblToppings.setBounds(23, 121, 111, 47);
+		lblToppings.setBounds(20, 133, 111, 23);
 		contentPane.add(lblToppings);
 		
 		JLabel lblSize = new JLabel("Size :");
@@ -65,14 +66,14 @@ public class PicaPasutijums extends JFrame {
 		lblSize.setBounds(196, 121, 111, 47);
 		contentPane.add(lblSize);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Cheese");
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Cheese ");
 		chckbxNewCheckBox.setFont(new Font("Ink Free", Font.BOLD, 15));
-		chckbxNewCheckBox.setBounds(34, 170, 97, 23);
+		chckbxNewCheckBox.setBounds(34, 170, 119, 23);
 		contentPane.add(chckbxNewCheckBox);
 		
 		JCheckBox chckbxSauce = new JCheckBox("Sauce");
 		chckbxSauce.setFont(new Font("Ink Free", Font.BOLD, 15));
-		chckbxSauce.setBounds(34, 198, 97, 23);
+		chckbxSauce.setBounds(34, 198, 119, 23);
 		contentPane.add(chckbxSauce);
 		
 		JCheckBox chckbxPepperoni = new JCheckBox("Pepperoni");
@@ -110,20 +111,25 @@ public class PicaPasutijums extends JFrame {
 		chckbxBlackOlives.setBounds(34, 380, 131, 23);
 		contentPane.add(chckbxBlackOlives);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("20 cm");
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("20 cm 7.99€");
 		rdbtnNewRadioButton.setFont(new Font("Ink Free", Font.BOLD, 15));
-		rdbtnNewRadioButton.setBounds(211, 171, 109, 23);
+		rdbtnNewRadioButton.setBounds(211, 171, 119, 23);
 		contentPane.add(rdbtnNewRadioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("30 cm");
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("30 cm 14.99€");
 		rdbtnNewRadioButton_1.setFont(new Font("Ink Free", Font.BOLD, 15));
-		rdbtnNewRadioButton_1.setBounds(211, 211, 109, 23);
+		rdbtnNewRadioButton_1.setBounds(211, 198, 119, 23);
 		contentPane.add(rdbtnNewRadioButton_1);
 		
-		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("50 cm");
+		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("50 cm 20.99€");
 		rdbtnNewRadioButton_1_1.setFont(new Font("Ink Free", Font.BOLD, 15));
-		rdbtnNewRadioButton_1_1.setBounds(211, 250, 109, 23);
+		rdbtnNewRadioButton_1_1.setBounds(211, 224, 119, 23);
 		contentPane.add(rdbtnNewRadioButton_1_1);
+		
+		ButtonGroup sizeGroup = new ButtonGroup();
+		sizeGroup.add(rdbtnNewRadioButton);
+		sizeGroup.add(rdbtnNewRadioButton_1);
+		sizeGroup.add(rdbtnNewRadioButton_1_1);
 		
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -140,5 +146,16 @@ public class PicaPasutijums extends JFrame {
 		btnContinue.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnContinue.setBounds(338, 439, 111, 53);
 		contentPane.add(btnContinue);
+		
+		JLabel lblTotalCost = new JLabel("Total cost: ");
+		lblTotalCost.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTotalCost.setFont(new Font("Ink Free", Font.BOLD, 25));
+		lblTotalCost.setBounds(226, 327, 182, 50);
+		contentPane.add(lblTotalCost);
+		
+		JLabel lblNewLabel_1 = new JLabel("0.50€ each");
+		lblNewLabel_1.setFont(new Font("Ink Free", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(30, 154, 66, 14);
+		contentPane.add(lblNewLabel_1);
 	}
 }
