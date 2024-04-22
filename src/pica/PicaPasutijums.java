@@ -19,6 +19,8 @@ public class PicaPasutijums extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private double topping = 0;
+	
 
 	/**
 	 * Launch the application.
@@ -70,6 +72,15 @@ public class PicaPasutijums extends JFrame {
 		chckbxNewCheckBox.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxNewCheckBox.setBounds(34, 170, 119, 23);
 		contentPane.add(chckbxNewCheckBox);
+		chckbxNewCheckBox.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxNewCheckBox.isSelected()) {
+		            topping=topping+0.50;
+		        } else {
+		            topping=topping-0.50;
+		        }
+		    }
+		});
 		
 		JCheckBox chckbxSauce = new JCheckBox("Sauce");
 		chckbxSauce.setFont(new Font("Ink Free", Font.BOLD, 15));
@@ -143,14 +154,20 @@ public class PicaPasutijums extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnContinue = new JButton("Continue");
+		btnContinue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PicaNoformejums.Noformejums();
+				PicaPasutijums.this.setVisible(false);
+			}
+		});
 		btnContinue.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnContinue.setBounds(338, 439, 111, 53);
 		contentPane.add(btnContinue);
 		
-		JLabel lblTotalCost = new JLabel("Total cost: ");
+		JLabel lblTotalCost = new JLabel("Total cost: "+topping);
 		lblTotalCost.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTotalCost.setFont(new Font("Ink Free", Font.BOLD, 25));
-		lblTotalCost.setBounds(226, 327, 182, 50);
+		lblTotalCost.setBounds(287, 338, 182, 50);
 		contentPane.add(lblTotalCost);
 		
 		JLabel lblNewLabel_1 = new JLabel("0.50€ each");
