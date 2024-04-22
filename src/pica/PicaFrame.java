@@ -7,7 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -55,40 +54,47 @@ public class PicaFrame extends JFrame {
 		lblNewLabel.setBounds(79, 11, 334, 200);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Uztaisīt pasūtījumu");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		JButton btnNewButton = new JButton("Create Order");
+		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnNewButton.setToolTipText("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PicaPasutijums order = new PicaPasutijums();
+				order.Pasutijums();
+				PicaFrame.this.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(126, 222, 229, 77);
 		contentPane.add(btnNewButton);
 		
-		JButton btnApskattPastijumus = new JButton("Apskatīt pasūtijumus");
+		JButton btnApskattPastijumus = new JButton("View Orders");
 		btnApskattPastijumus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnApskattPastijumus.setToolTipText("");
-		btnApskattPastijumus.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnApskattPastijumus.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnApskattPastijumus.setBounds(126, 332, 229, 77);
 		contentPane.add(btnApskattPastijumus);
 		
-		JButton btnDzstPastijumu = new JButton("Dzēst pasūtijumu");
+		JButton btnDzstPastijumu = new JButton("Delete Order");
+		btnDzstPastijumu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnDzstPastijumu.setToolTipText("");
-		btnDzstPastijumu.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnDzstPastijumu.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnDzstPastijumu.setBounds(126, 442, 229, 77);
 		contentPane.add(btnDzstPastijumu);
 		
-		JButton btnIziet = new JButton("Iziet");
+		JButton btnIziet = new JButton("Exit");
 		btnIziet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
 		btnIziet.setToolTipText("");
-		btnIziet.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnIziet.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnIziet.setBounds(126, 552, 229, 77);
 		contentPane.add(btnIziet);
 	}
