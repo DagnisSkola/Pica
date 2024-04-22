@@ -41,13 +41,10 @@ public class PicaFrame extends JFrame {
 	 */
 	public PicaFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setBounds(100, 100, 500, 750);
-	    setLocationRelativeTo(null);
-	    contentPane = new JPanel();
-	    contentPane.setBackground(new Color(232, 233, 235));
-	    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-	    setContentPane(contentPane);
-	    contentPane.setLayout(null);
+		setBounds(100, 100, 500, 750);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(232, 233, 235));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -87,6 +84,7 @@ public class PicaFrame extends JFrame {
 		JButton btnIziet = new JButton("Iziet");
 		btnIziet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
 			}
 		});
 		btnIziet.setToolTipText("");
