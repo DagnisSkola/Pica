@@ -41,10 +41,13 @@ public class PicaFrame extends JFrame {
 	 */
 	public PicaFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 750);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(232, 233, 235));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	    setBounds(100, 100, 500, 750);
+	    setLocationRelativeTo(null);
+	    contentPane = new JPanel();
+	    contentPane.setBackground(new Color(232, 233, 235));
+	    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	    setContentPane(contentPane);
+	    contentPane.setLayout(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
