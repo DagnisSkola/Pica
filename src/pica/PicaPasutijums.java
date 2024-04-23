@@ -15,13 +15,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
+import javax.swing.JTextField;
 
 public class PicaPasutijums extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private double topping = 0;
+	private double topping = 0, deliver = 0, size = 0;
 	ArrayList<Object> Picas = new ArrayList<>();
+	private JTextField textField;
 	
 
 	/**
@@ -209,16 +211,37 @@ public class PicaPasutijums extends JFrame {
 		rdbtnNewRadioButton.setFont(new Font("Ink Free", Font.BOLD, 15));
 		rdbtnNewRadioButton.setBounds(211, 171, 119, 23);
 		contentPane.add(rdbtnNewRadioButton);
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (rdbtnNewRadioButton.isSelected())
+		            size=7.99;
+		        System.out.println(size);
+		    }
+		});
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("30 cm 14.99€");
 		rdbtnNewRadioButton_1.setFont(new Font("Ink Free", Font.BOLD, 15));
 		rdbtnNewRadioButton_1.setBounds(211, 198, 119, 23);
 		contentPane.add(rdbtnNewRadioButton_1);
+		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (rdbtnNewRadioButton_1.isSelected())
+		            size=14.99;
+		        System.out.println(size);
+		    }
+		});
 		
 		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("50 cm 20.99€");
 		rdbtnNewRadioButton_1_1.setFont(new Font("Ink Free", Font.BOLD, 15));
 		rdbtnNewRadioButton_1_1.setBounds(211, 224, 119, 23);
 		contentPane.add(rdbtnNewRadioButton_1_1);
+		rdbtnNewRadioButton_1_1.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (rdbtnNewRadioButton_1_1.isSelected())
+		            size=20.99;
+		        System.out.println(size);
+		    }
+		});
 		
 		ButtonGroup sizeGroup = new ButtonGroup();
 		sizeGroup.add(rdbtnNewRadioButton);
@@ -257,5 +280,50 @@ public class PicaPasutijums extends JFrame {
 		lblNewLabel_1.setFont(new Font("Ink Free", Font.BOLD, 13));
 		lblNewLabel_1.setBounds(30, 154, 66, 14);
 		contentPane.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(439, 135, 150, 23);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblTel = new JLabel("Tel. :");
+		lblTel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTel.setFont(new Font("Ink Free", Font.BOLD, 20));
+		lblTel.setBounds(386, 121, 111, 47);
+		contentPane.add(lblTel);
+		
+		JLabel lblDeliver = new JLabel("Deliver :");
+		lblDeliver.setHorizontalAlignment(SwingConstants.LEFT);
+		lblDeliver.setFont(new Font("Ink Free", Font.BOLD, 20));
+		lblDeliver.setBounds(386, 157, 82, 47);
+		contentPane.add(lblDeliver);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Yes 2.99€");
+		rdbtnNewRadioButton_2.setFont(new Font("Ink Free", Font.BOLD, 15));
+		rdbtnNewRadioButton_2.setBounds(461, 169, 97, 24);
+		contentPane.add(rdbtnNewRadioButton_2);
+		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (rdbtnNewRadioButton_2.isSelected())
+		            deliver=2.99;
+		        System.out.println(deliver);
+		    }
+		});
+		
+		JRadioButton rdbtnNewRadioButton_2_1 = new JRadioButton("No 0.00€");
+		rdbtnNewRadioButton_2_1.setFont(new Font("Ink Free", Font.BOLD, 15));
+		rdbtnNewRadioButton_2_1.setBounds(461, 197, 88, 24);
+		contentPane.add(rdbtnNewRadioButton_2_1);
+		rdbtnNewRadioButton_2_1.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (rdbtnNewRadioButton_2_1.isSelected())
+		            deliver=0.00;
+		        System.out.println(deliver);
+		    }
+		});
+		
+		ButtonGroup deliverGroup = new ButtonGroup();
+		deliverGroup.add(rdbtnNewRadioButton_2);
+		deliverGroup.add(rdbtnNewRadioButton_2_1);
 	}
 }
