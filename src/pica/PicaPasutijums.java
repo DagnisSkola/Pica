@@ -21,9 +21,10 @@ public class PicaPasutijums extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private double topping = 0, deliver = 0, size = 0;
+	public double topping = 0, deliver = 0, size = 0;
+	private String telNr;
 	ArrayList<Object> Picas = new ArrayList<>();
-	private JTextField textField;
+	private JTextField txtThty;
 	
 
 	/**
@@ -281,10 +282,13 @@ public class PicaPasutijums extends JFrame {
 		lblNewLabel_1.setBounds(30, 154, 66, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		textField = new JTextField();
-		textField.setBounds(439, 135, 150, 23);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtThty = new JTextField();
+		txtThty.setText("+371 ");
+		telNr = txtThty.getText();
+		txtThty.setBounds(439, 135, 150, 23);
+		contentPane.add(txtThty);
+		txtThty.setColumns(10);
+		System.out.println(telNr);
 		
 		JLabel lblTel = new JLabel("Tel. :");
 		lblTel.setHorizontalAlignment(SwingConstants.LEFT);
