@@ -2,17 +2,16 @@ package pica;
 
 public class Pica {
 	//attributes
-	double toppings, size;
+	double topping, size;
 	String telNr;
-	boolean deliver, received;
+	boolean deliver;
 	
 	//constructor
-	public Pica(double toppings, double size, String telNr, boolean deliver, boolean received){
-		this.toppings=toppings;
+	public Pica(double topping, double size, String telNr, boolean deliver){
+		this.topping=topping;
 		this.size=size;
 		this.telNr=telNr;
 		this.deliver=deliver;
-		this.received=received;
 	}
 	
 	//Getter
@@ -21,7 +20,7 @@ public class Pica {
 	}
 	
 	public double getToppings() {
-		return toppings;
+		return topping;
 	}
 	
 	public double getSize() {
@@ -32,9 +31,6 @@ public class Pica {
 		return deliver;
 	}
 	
-	public boolean getReceived() {
-		return received;
-	}
 	
 	//Setter
 	public void setTelNr() {
@@ -42,7 +38,7 @@ public class Pica {
 	}
 	
 	public void setToppings() {
-		this.toppings = toppings;
+		this.topping = topping;
 	}
 	
 	public void setSize() {
@@ -53,7 +49,4 @@ public class Pica {
 		this.deliver = deliver;
 	}
 	
-	public void setReceived() {
-		this.received = received;
-	}
 }

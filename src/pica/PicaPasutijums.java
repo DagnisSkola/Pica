@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -23,6 +25,7 @@ public class PicaPasutijums extends JFrame {
 	private JPanel contentPane;
 	public double topping = 0, deliver = 0, size = 0;
 	private String telNr;
+	private boolean deliveryStatus;
 	ArrayList<Object> Picas = new ArrayList<>();
 	private JTextField txtThty;
 	
@@ -46,6 +49,8 @@ public class PicaPasutijums extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
+	
 	public PicaPasutijums() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 667, 554);
@@ -73,6 +78,8 @@ public class PicaPasutijums extends JFrame {
 		lblSize.setBounds(196, 121, 111, 47);
 		contentPane.add(lblSize);
 		
+		JLabel lblTotalCost = new JLabel("Total cost: 0.00€");
+		
 		JCheckBox chckbxCheese = new JCheckBox("Cheese ");
 		chckbxCheese.setFont(new Font("Ink Free", Font.BOLD, 15));
 		chckbxCheese.setBounds(34, 170, 119, 23);
@@ -84,6 +91,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+		        lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -99,6 +107,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+		        lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -114,6 +123,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -129,6 +139,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -144,6 +155,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -159,6 +171,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -174,6 +187,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -189,6 +203,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -204,6 +219,7 @@ public class PicaPasutijums extends JFrame {
 		        } else {
 		            topping=topping-0.50;
 		        }
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		        System.out.println(topping);
 		    }
 		});
@@ -217,6 +233,7 @@ public class PicaPasutijums extends JFrame {
 		        if (rdbtnNewRadioButton.isSelected())
 		            size=7.99;
 		        System.out.println(size);
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		    }
 		});
 		
@@ -229,6 +246,7 @@ public class PicaPasutijums extends JFrame {
 		        if (rdbtnNewRadioButton_1.isSelected())
 		            size=14.99;
 		        System.out.println(size);
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		    }
 		});
 		
@@ -241,6 +259,7 @@ public class PicaPasutijums extends JFrame {
 		        if (rdbtnNewRadioButton_1_1.isSelected())
 		            size=20.99;
 		        System.out.println(size);
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		    }
 		});
 		
@@ -262,19 +281,24 @@ public class PicaPasutijums extends JFrame {
 		
 		JButton btnContinue = new JButton("Continue");
 		btnContinue.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				PicaNoformejums.Noformejums();
-				PicaPasutijums.this.setVisible(false);
-			}
+		    public void actionPerformed(ActionEvent e) {
+		    	if(size>0) {
+			    	if (deliver>0&&telNr!="+371")
+			    		deliveryStatus = true; // true if Yes is selected, false if No is selected
+			        Pica pica = new Pica(topping, size, telNr, deliveryStatus);
+			        Picas.add(pica); // Add the created Pica object to the Picas ArrayList
+			        PicaNoformejums.Noformejums();
+			        PicaPasutijums.this.setVisible(false);
+		    	}
+		    }
 		});
 		btnContinue.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnContinue.setBounds(338, 439, 111, 53);
 		contentPane.add(btnContinue);
 		
-		JLabel lblTotalCost = new JLabel("Total cost: "+topping);
-		lblTotalCost.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTotalCost.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTotalCost.setFont(new Font("Ink Free", Font.BOLD, 25));
-		lblTotalCost.setBounds(287, 338, 182, 50);
+		lblTotalCost.setBounds(287, 338, 354, 50);
 		contentPane.add(lblTotalCost);
 		
 		JLabel lblNewLabel_1 = new JLabel("0.50€ each");
@@ -286,8 +310,23 @@ public class PicaPasutijums extends JFrame {
 		txtThty.setText("+371 ");
 		telNr = txtThty.getText();
 		txtThty.setBounds(439, 135, 150, 23);
+		txtThty.getDocument().addDocumentListener((DocumentListener) new DocumentListener() {
+		    public void changedUpdate(DocumentEvent e) {
+		        updateTelNr();
+		    }
+		    public void removeUpdate(DocumentEvent e) {
+		        updateTelNr();
+		    }
+		    public void insertUpdate(DocumentEvent e) {
+		        updateTelNr();
+		    }
+
+		    private void updateTelNr() {
+		        telNr = txtThty.getText();
+		        System.out.println(telNr);
+		    }
+		});
 		contentPane.add(txtThty);
-		txtThty.setColumns(10);
 		System.out.println(telNr);
 		
 		JLabel lblTel = new JLabel("Tel. :");
@@ -311,6 +350,7 @@ public class PicaPasutijums extends JFrame {
 		        if (rdbtnNewRadioButton_2.isSelected())
 		            deliver=2.99;
 		        System.out.println(deliver);
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		    }
 		});
 		
@@ -323,6 +363,7 @@ public class PicaPasutijums extends JFrame {
 		        if (rdbtnNewRadioButton_2_1.isSelected())
 		            deliver=0.00;
 		        System.out.println(deliver);
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
 		    }
 		});
 		
