@@ -19,17 +19,16 @@ import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
-public class PicaPasutijums extends JFrame {
+public class PicaPasutijums extends JFrame {	
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	public double topping = 0, deliver = 0, size = 0;
 	private String telNr;
 	private boolean deliveryStatus;
-	ArrayList<Object> Picas = new ArrayList<>();
+	static ArrayList<Object> Picas = new ArrayList<>();
 	private JTextField txtThty;
 	
-
 	/**
 	 * Launch the application.
 	 */
@@ -284,9 +283,9 @@ public class PicaPasutijums extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		    	if(size>0) {
 			    	if (deliver>0&&telNr!="+371")
-			    		deliveryStatus = true; // true if Yes is selected, false if No is selected
+			    		deliveryStatus = true;
 			        Pica pica = new Pica(topping, size, telNr, deliveryStatus);
-			        Picas.add(pica); // Add the created Pica object to the Picas ArrayList
+			        Picas.add(pica);
 			        PicaNoformejums.Noformejums();
 			        PicaPasutijums.this.setVisible(false);
 		    	}

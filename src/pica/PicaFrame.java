@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
@@ -60,7 +61,7 @@ public class PicaFrame extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PicaPasutijums.Pasutijums();
-				PicaFrame.this.setVisible(false);
+				PicaFrame.this.setVisible(false);	
 			}
 		});
 		btnNewButton.setBounds(126, 222, 229, 77);
@@ -69,6 +70,14 @@ public class PicaFrame extends JFrame {
 		JButton btnApskattPastijumus = new JButton("View Orders");
 		btnApskattPastijumus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ArrayList<Object> Picas = PicaPasutijums.Picas;
+				if (!Picas.isEmpty()) {
+					PicaView.View();
+					PicaFrame.this.setVisible(false);	
+				} else {
+					PicaNoPica.NoPizza();
+					PicaFrame.this.setVisible(false);	
+				}
 			}
 		});
 		btnApskattPastijumus.setToolTipText("");
@@ -79,6 +88,13 @@ public class PicaFrame extends JFrame {
 		JButton btnDzstPastijumu = new JButton("Delete Order");
 		btnDzstPastijumu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ArrayList<Object> Picas = PicaPasutijums.Picas;
+				if (!Picas.isEmpty()) {
+					//todo pizza deletion
+				} else {
+					PicaNoPica.NoPizza();
+					PicaFrame.this.setVisible(false);	
+				}
 			}
 		});
 		btnDzstPastijumu.setToolTipText("");

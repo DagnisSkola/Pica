@@ -38,7 +38,7 @@ public class PicaNoformejums extends JFrame {
 	 */
 	public PicaNoformejums() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 722, 494);
+		setBounds(100, 100, 535, 494);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -48,7 +48,7 @@ public class PicaNoformejums extends JFrame {
 		JLabel lblReceipt = new JLabel("Receipt :");
 		lblReceipt.setHorizontalAlignment(SwingConstants.CENTER);
 		lblReceipt.setFont(new Font("Ink Free", Font.BOLD, 35));
-		lblReceipt.setBounds(119, 25, 451, 69);
+		lblReceipt.setBounds(50, 25, 451, 69);
 		contentPane.add(lblReceipt);
 		
 		JButton btnNewButton = new JButton("Back");
@@ -59,7 +59,7 @@ public class PicaNoformejums extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnNewButton.setBounds(225, 372, 111, 53);
+		btnNewButton.setBounds(138, 372, 111, 53);
 		contentPane.add(btnNewButton);
 		
 		JButton btnContinue = new JButton("Continue");
@@ -70,31 +70,36 @@ public class PicaNoformejums extends JFrame {
 			}
 		});
 		btnContinue.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnContinue.setBounds(346, 372, 111, 53);
+		btnContinue.setBounds(259, 372, 111, 53);
 		contentPane.add(btnContinue);
 		
-		JLabel lblToppings = new JLabel("Toppings: ");
+		JLabel lblToppings = new JLabel("Toppings: "+Pica.getTopping()+"0€");
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setFont(new Font("Ink Free", Font.BOLD, 25));
-		lblToppings.setBounds(147, 105, 134, 45);
+		lblToppings.setBounds(60, 113, 402, 45);
 		contentPane.add(lblToppings);
 		
-		JLabel lblSize = new JLabel("Size: ");
+		JLabel lblSize = new JLabel("Size: "+Pica.getSize()+"€");
 		lblSize.setHorizontalAlignment(SwingConstants.LEFT);
 		lblSize.setFont(new Font("Ink Free", Font.BOLD, 25));
-		lblSize.setBounds(147, 148, 134, 45);
-		contentPane.add(lblSize);
+		lblSize.setBounds(60, 156, 430, 45);
+		contentPane.add(lblSize);	
 		
-		JLabel lblDelivery = new JLabel("Delivery: ");
+		double Delivery = 0;
+		if(Pica.getDeliver())
+			Delivery = 2.49;
+		JLabel lblDelivery = new JLabel("Delivery: "+Delivery+"€");
 		lblDelivery.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDelivery.setFont(new Font("Ink Free", Font.BOLD, 25));
-		lblDelivery.setBounds(147, 192, 134, 45);
+		lblDelivery.setBounds(60, 200, 407, 45);
 		contentPane.add(lblDelivery);
 		
-		JLabel lblTotal = new JLabel("Total: ");
+		JLabel lblTotal = new JLabel("Total: "+String.format("%.2f",(Pica.getTopping()+Pica.getSize()+Delivery))+"€");
 		lblTotal.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTotal.setFont(new Font("Ink Free", Font.BOLD, 30));
-		lblTotal.setBounds(147, 275, 134, 45);
+		lblTotal.setBounds(60, 283, 402, 45);
 		contentPane.add(lblTotal);
 	}
+	
+	
 }
