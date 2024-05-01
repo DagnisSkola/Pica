@@ -48,28 +48,22 @@ public class PicaView extends JFrame {
 		
 		ArrayList<Object> Picas = PicaPasutijums.Picas;
 		StringBuilder str = new StringBuilder();
-		int y = 23;
-		for (Object obj : Picas) {
-		    if (obj instanceof Pica) {
-		        Pica pica = (Pica) obj;
-		        System.out.println(pica.displayDetails());
-		    }
-		}
+		int y = 90;
 		for (Object o : Picas) {
 		    JLabel pizzaLabel = new JLabel(((Pica) o).displayDetails());
 		    pizzaLabel.setFont(new Font("Ink Free", Font.BOLD, 20));
 		    pizzaLabel.setVerticalAlignment(SwingConstants.TOP);
 		    pizzaLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		    pizzaLabel.setBounds(44, y, 931, 20); // Adjust the bounds as needed
+		    pizzaLabel.setBounds(44, y, 931, 30); // Adjust the bounds as needed
 		    contentPane.add(pizzaLabel);
-		    y += 20; // Increment y-coordinate for the next JLabel
+		    y += 30;
 		}
 		JLabel lblNewLabel = new JLabel();
 		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD, 20));
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setText(str.toString());
-		lblNewLabel.setBounds(44, 23, 931, 342);
+		lblNewLabel.setBounds(44, 114, 931, 251);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Back");
@@ -82,5 +76,11 @@ public class PicaView extends JFrame {
 		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnNewButton.setBounds(440, 383, 111, 53);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("Orders :");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Ink Free", Font.BOLD, 35));
+		lblNewLabel_1.setBounds(274, 23, 451, 69);
+		contentPane.add(lblNewLabel_1);
 	}
 }

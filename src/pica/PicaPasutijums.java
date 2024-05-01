@@ -278,25 +278,19 @@ public class PicaPasutijums extends JFrame {
 		JButton btnContinue = new JButton("Continue");
 		btnContinue.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
-		    	if(size>0) {
-			    	if (deliver>0&&telNr!="+371")
-			    		deliveryStatus = true;
-			    	if(Pica.getPasNr()==0) {
-			    		pasNr=1;
-			    		System.out.println("1PasNr: "+pasNr);
-			    	}else {
-			    		pasNr=(Pica.getPasNr()+1);
-			    		System.out.println("2PasNr: "+pasNr);
-			    	}
-			    	Picas.add(new Pica(topping, size, telNr, deliveryStatus, pasNr, totCost));
-			    	for (Object obj : Picas) {
-					    if (obj instanceof Pica) {
-					        Pica pica = (Pica) obj;
-					        System.out.println(pica.displayDetails());
-					    }
-					}
-			        PicaNoformejums.Noformejums();
-			        PicaPasutijums.this.setVisible(false);
+		    	if(size>0&&telNr.length()==13) {
+		    		boolean currentDeliveryStatus = deliveryStatus;
+		            if(deliver > 0)
+		                currentDeliveryStatus = true;
+		            int currentPasNr = (Pica.getTPasNr() == 0) ? 1 : (Pica.getTPasNr() + 1);
+		            Picas.add(new Pica(topping, size, telNr, currentDeliveryStatus, currentPasNr, totCost));
+		            StringBuilder str = new StringBuilder("Pizza amount: " + Picas.size() + "\n");
+		            for (Object o : Picas) {
+		                Pica pica = (Pica) o;
+		                System.out.println(pica.displayDetails());
+		            }
+		            PicaNoformejums.Noformejums();
+		            PicaPasutijums.this.setVisible(false);
 		    	}
 		    }
 		});

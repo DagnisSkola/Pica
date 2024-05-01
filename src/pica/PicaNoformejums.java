@@ -61,20 +61,20 @@ public class PicaNoformejums extends JFrame {
 		btnContinue.setBounds(212, 372, 111, 53);
 		contentPane.add(btnContinue);
 		
-		JLabel lblToppings = new JLabel("Toppings: "+Pica.getTopping()+"0€");
+		JLabel lblToppings = new JLabel("Toppings: "+Pica.getTTopping()+"0€");
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setFont(new Font("Ink Free", Font.BOLD, 25));
 		lblToppings.setBounds(60, 113, 402, 45);
 		contentPane.add(lblToppings);
 		
-		JLabel lblSize = new JLabel("Size: "+Pica.getSize()+"€");
+		JLabel lblSize = new JLabel("Size: "+Pica.getTSize()+"€");
 		lblSize.setHorizontalAlignment(SwingConstants.LEFT);
 		lblSize.setFont(new Font("Ink Free", Font.BOLD, 25));
 		lblSize.setBounds(60, 156, 430, 45);
 		contentPane.add(lblSize);	
 		
 		double Delivery = 0;
-		if(Pica.getDeliver())
+		if(Pica.getTDeliver())
 			Delivery = 2.49;
 		JLabel lblDelivery = new JLabel("Delivery: "+Delivery+"€");
 		lblDelivery.setHorizontalAlignment(SwingConstants.LEFT);
@@ -82,7 +82,7 @@ public class PicaNoformejums extends JFrame {
 		lblDelivery.setBounds(60, 200, 407, 45);
 		contentPane.add(lblDelivery);
 		
-		JLabel lblTotal = new JLabel("Total: "+String.format("%.2f",(Pica.getTopping()+Pica.getSize()+Delivery))+"€");
+		JLabel lblTotal = new JLabel("Total: "+String.format("%.2f",(Pica.getTotCost()))+"€");
 		lblTotal.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTotal.setFont(new Font("Ink Free", Font.BOLD, 30));
 		lblTotal.setBounds(60, 283, 402, 45);
