@@ -14,6 +14,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
@@ -29,6 +33,37 @@ public class PicaPasutijums extends JFrame {
 	private boolean deliveryStatus;
 	static ArrayList<Object> Picas = new ArrayList<>();
 	private JTextField txtThty;	
+	
+	static void saglabat(ArrayList<Object> Picas) {
+		try {
+			FileWriter fw = new FileWriter("Pizza.txt",true);
+			PrintWriter pw = new PrintWriter(fw);
+
+            for (Object o : Picas) {   	
+                Pica pica = (Pica) o;
+                pw.println(pica.displayDetails());
+            }
+			
+			pw.close();
+			System.out.println("Skaitļi saglabāti failā Pizza.txt");
+		}catch(IOException e) {
+			System.out.println("Radās kļūda saglabājot failā!");
+		}
+	}
+	
+	static void dzest(String failaVards) {
+	    try {
+	        File fails = new File(failaVards);
+	        if (fails.delete()) {
+	            System.out.println("Fails " + failaVards + " ir dzēsts!");
+	        } else {
+	            System.out.println("Fails " + failaVards + " netika atrasts!");
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Radās kļūda dzēšot failu!");
+	    }
+	}
+	
 	/**
 	 * Launch the application.
 	 */
@@ -289,6 +324,8 @@ public class PicaPasutijums extends JFrame {
 		                Pica pica = (Pica) o;
 		                System.out.println(pica.displayDetails());
 		            }
+		            dzest("Pizza.txt");
+		            saglabat(Picas);
 		            PicaNoformejums.Noformejums();
 		            PicaPasutijums.this.setVisible(false);
 		    	}
