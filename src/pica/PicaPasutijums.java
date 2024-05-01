@@ -362,7 +362,7 @@ public class PicaPasutijums extends JFrame {
 		                Pica pica = (Pica) o;
 		                System.out.println(pica.displayDetails());
 		            }
-		            //dzest("Pizza.txt");
+		            dzest("Pizza.txt");
 		            saglabat(Picas);
 		            PicaNoformejums.Noformejums();
 		            PicaPasutijums.this.setVisible(false);

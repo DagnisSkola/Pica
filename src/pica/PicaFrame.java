@@ -41,7 +41,7 @@ public class PicaFrame extends JFrame {
 	 */
 	public PicaFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 750);
+		setBounds(100, 100, 500, 636);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(232, 233, 235));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -56,6 +56,8 @@ public class PicaFrame extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Create Order");
+		btnNewButton.setBackground(new Color(255, 220, 185));
+		btnNewButton.setForeground(new Color(128, 0, 0));
 		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnNewButton.setToolTipText("");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -68,6 +70,8 @@ public class PicaFrame extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnApskattPastijumus = new JButton("View Orders");
+		btnApskattPastijumus.setBackground(new Color(255, 220, 185));
+		btnApskattPastijumus.setForeground(new Color(128, 0, 0));
 		btnApskattPastijumus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<Object> Picas = PicaPasutijums.Picas;
@@ -85,24 +89,9 @@ public class PicaFrame extends JFrame {
 		btnApskattPastijumus.setBounds(126, 332, 229, 77);
 		contentPane.add(btnApskattPastijumus);
 		
-		JButton btnDzstPastijumu = new JButton("Delete Order");
-		btnDzstPastijumu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ArrayList<Object> Picas = PicaPasutijums.Picas;
-				if (!Picas.isEmpty()) {
-					//todo pizza deletion
-				} else {
-					PicaNoPica.NoPizza();
-					PicaFrame.this.setVisible(false);	
-				}
-			}
-		});
-		btnDzstPastijumu.setToolTipText("");
-		btnDzstPastijumu.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnDzstPastijumu.setBounds(126, 442, 229, 77);
-		contentPane.add(btnDzstPastijumu);
-		
 		JButton btnIziet = new JButton("Exit");
+		btnIziet.setBackground(new Color(255, 220, 185));
+		btnIziet.setForeground(new Color(128, 0, 0));
 		btnIziet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -110,7 +99,7 @@ public class PicaFrame extends JFrame {
 		});
 		btnIziet.setToolTipText("");
 		btnIziet.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnIziet.setBounds(126, 552, 229, 77);
+		btnIziet.setBounds(126, 442, 229, 77);
 		contentPane.add(btnIziet);
 	}
 }

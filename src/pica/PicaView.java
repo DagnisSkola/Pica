@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class PicaView extends JFrame {
 
@@ -63,7 +64,7 @@ public class PicaView extends JFrame {
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setText(str.toString());
-		lblNewLabel.setBounds(44, 114, 931, 251);
+		lblNewLabel.setBounds(44, 114, 658, 251);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Back");
@@ -82,5 +83,40 @@ public class PicaView extends JFrame {
 		lblNewLabel_1.setFont(new Font("Ink Free", Font.BOLD, 35));
 		lblNewLabel_1.setBounds(274, 23, 451, 69);
 		contentPane.add(lblNewLabel_1);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Ink Free", Font.BOLD, 15));
+	    comboBox.setBounds(735, 132, 155, 40);
+	    for (Object o : Picas) {
+	        comboBox.addItem("Order "+((Pica) o).getPasNr());
+	    }
+	    contentPane.add(comboBox);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Remove :");
+		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1.setFont(new Font("Ink Free", Font.BOLD, 25));
+		lblNewLabel_1_1.setBounds(761, 77, 196, 69);
+		contentPane.add(lblNewLabel_1_1);
+		
+		JButton btnNewButton_1 = new JButton("Delete");
+		btnNewButton_1.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        String selectedItem = (String) comboBox.getSelectedItem();
+		        if (selectedItem != null) {
+		            for (Object o : Picas) {
+		                if (("Order "+((Pica) o).getPasNr()).equals(selectedItem)) {
+		                    Picas.remove(o);
+		                    break;
+		                }
+		            }
+		            comboBox.removeItem(selectedItem);
+		        }
+		        PicaView.this.setVisible(false);
+		        PicaView.View();
+		    }
+		});
+		btnNewButton_1.setFont(new Font("Ink Free", Font.BOLD, 20));
+		btnNewButton_1.setBounds(891, 132, 103, 40);
+		contentPane.add(btnNewButton_1);
 	}
 }
