@@ -15,10 +15,12 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
@@ -33,6 +35,41 @@ public class PicaPasutijums extends JFrame {
 	private boolean deliveryStatus;
 	static ArrayList<Object> Picas = new ArrayList<>();
 	private JTextField txtThty;	
+	
+	static ArrayList<Object> ielasit(String failaVards) {
+	    ArrayList<Object> Picas = new ArrayList<>();
+	    try {
+	        File fails = new File(failaVards);
+	        Scanner lasitajs = new Scanner(fails);
+
+	        while (lasitajs.hasNextLine()) {
+	            String rinda = lasitajs.nextLine();
+	            String[] parts = rinda.split(", ");
+
+	            int pasNrF = Integer.parseInt(parts[0].split(" ")[1]);
+	            double totCost = Double.parseDouble(parts[1].split(" ")[1].replace("€", ""));
+	            String telNr = parts[2].split(" ")[1];
+	            boolean deliver = parts[3].equals("With delivery");
+	            System.out.println(pasNrF+" "+totCost+" "+telNr+" "+deliver);
+
+	            double topping = 0.0;
+	            double size = 0.0;
+
+	            Picas.add(new Pica(topping, size, telNr, deliver, pasNrF, totCost));
+	            
+	            for (Object o : Picas) {
+	                Pica pica = (Pica) o;
+	                System.out.println(pica.displayDetails());
+	            }
+	        }
+	        lasitajs.close();
+	    } catch (FileNotFoundException e) {
+	        System.out.println("Fails " + failaVards + " netika atrasts!");
+	    } catch (Exception e) {
+	        System.out.println("Radās kļūda ielasot failu!");
+	    }
+	    return Picas;
+	}
 	
 	static void saglabat(ArrayList<Object> Picas) {
 		try {
@@ -73,6 +110,7 @@ public class PicaPasutijums extends JFrame {
 				try {
 					PicaPasutijums frame = new PicaPasutijums();
 					frame.setVisible(true);
+		    		ielasit("Pizza.txt");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -324,7 +362,7 @@ public class PicaPasutijums extends JFrame {
 		                Pica pica = (Pica) o;
 		                System.out.println(pica.displayDetails());
 		            }
-		            dzest("Pizza.txt");
+		            //dzest("Pizza.txt");
 		            saglabat(Picas);
 		            PicaNoformejums.Noformejums();
 		            PicaPasutijums.this.setVisible(false);
