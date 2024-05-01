@@ -13,7 +13,7 @@
 - [x] Pielikt Back pogas kas ļauj ceļot atpakaļ
 - [x] Pica tiek saglabāta Objektā
 - [x] Sākuma ekrāna otrā poga aizved uz pasūtijumu apskati
-- [ ] Pasūtijumu apskates logs parāda visas uzstaisītās picas
+- [x] Pasūtijumu apskates logs parāda visas uzstaisītās picas
 - [ ] Picas tiek saglabātas texta failā, lai parādītos ja programma tiek aizvērta
 - [ ] Sākuma ekrāna trešā poga aizved uz pasūtijumu dzēšanu
 - [ ] Pasūtijumu korekti tiek dzēsti
