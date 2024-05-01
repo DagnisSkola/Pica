@@ -15,8 +15,8 @@
 - [x] Sākuma ekrāna otrā poga aizved uz pasūtijumu apskati
 - [x] Pasūtijumu apskates logs parāda visas uzstaisītās picas
 - [ ] Picas tiek saglabātas texta failā, lai parādītos ja programma tiek aizvērta
-- [ ] Sākuma ekrāna trešā poga aizved uz pasūtijumu dzēšanu
-- [ ] Pasūtijumu korekti tiek dzēsti
+- [x] Sākuma ekrāna trešā poga aizved uz pasūtijumu dzēšanu
+- [x] Pasūtijumu korekti tiek dzēsti
 - [ ] Piekopt dizainu
 - [ ] Centrēt logus uz ekrāna vidu
 - [ ] Prezentēt programmu
