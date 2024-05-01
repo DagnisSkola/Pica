@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 
 public class PicaNoformejums extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -51,17 +50,6 @@ public class PicaNoformejums extends JFrame {
 		lblReceipt.setBounds(50, 25, 451, 69);
 		contentPane.add(lblReceipt);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				PicaPasutijums.Pasutijums();
-				PicaNoformejums.this.setVisible(false);
-			}
-		});
-		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnNewButton.setBounds(138, 372, 111, 53);
-		contentPane.add(btnNewButton);
-		
 		JButton btnContinue = new JButton("Continue");
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -70,7 +58,7 @@ public class PicaNoformejums extends JFrame {
 			}
 		});
 		btnContinue.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnContinue.setBounds(259, 372, 111, 53);
+		btnContinue.setBounds(212, 372, 111, 53);
 		contentPane.add(btnContinue);
 		
 		JLabel lblToppings = new JLabel("Toppings: "+Pica.getTopping()+"0€");

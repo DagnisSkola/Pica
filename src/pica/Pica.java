@@ -2,17 +2,19 @@ package pica;
 
 public class Pica {
     // attributes
-    static double topping;
-	static double size;
+    static double topping, size, totCost;
     static String telNr;
     static boolean deliver;
+    static int pasNr;
 
     // constructor
-    public Pica(double topping, double size, String telNr, boolean deliver) {
+    public Pica(double topping, double size, String telNr, boolean deliver, int pasNr, double totCost) {
         this.topping = topping;
         this.size = size;
         this.telNr = telNr;
         this.deliver = deliver;
+        this.pasNr = pasNr;
+        this.totCost = totCost;
     }
 
     // Getters
@@ -30,6 +32,14 @@ public class Pica {
 
     public static boolean getDeliver() {
         return deliver;
+    }
+    
+    public static int getPasNr() {
+    	return pasNr;
+    }
+    
+    public static double getTotCost() {
+    	return totCost;
     }
 
     // Setters
@@ -50,6 +60,6 @@ public class Pica {
     }
     
     public String displayDetails() {
-        return "Tel. "+getTelNr();
+        return "Order "+pasNr+". Total. "+String.format("%.2f",(getTotCost()))+"€ Tel. "+getTelNr();
     }
 }

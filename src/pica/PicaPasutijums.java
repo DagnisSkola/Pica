@@ -23,12 +23,12 @@ public class PicaPasutijums extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	public double topping = 0, deliver = 0, size = 0;
+	public int pasNr=0;
+	public double topping = 0, deliver = 0, size = 0, totCost;
 	private String telNr;
 	private boolean deliveryStatus;
 	static ArrayList<Object> Picas = new ArrayList<>();
-	private JTextField txtThty;
-	
+	private JTextField txtThty;	
 	/**
 	 * Launch the application.
 	 */
@@ -44,12 +44,9 @@ public class PicaPasutijums extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
-
-	
 	public PicaPasutijums() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 667, 554);
@@ -284,8 +281,20 @@ public class PicaPasutijums extends JFrame {
 		    	if(size>0) {
 			    	if (deliver>0&&telNr!="+371")
 			    		deliveryStatus = true;
-			        Pica pica = new Pica(topping, size, telNr, deliveryStatus);
-			        Picas.add(pica);
+			    	if(Pica.getPasNr()==0) {
+			    		pasNr=1;
+			    		System.out.println("1PasNr: "+pasNr);
+			    	}else {
+			    		pasNr=(Pica.getPasNr()+1);
+			    		System.out.println("2PasNr: "+pasNr);
+			    	}
+			    	Picas.add(new Pica(topping, size, telNr, deliveryStatus, pasNr, totCost));
+			    	for (Object obj : Picas) {
+					    if (obj instanceof Pica) {
+					        Pica pica = (Pica) obj;
+					        System.out.println(pica.displayDetails());
+					    }
+					}
 			        PicaNoformejums.Noformejums();
 			        PicaPasutijums.this.setVisible(false);
 		    	}
@@ -349,7 +358,8 @@ public class PicaPasutijums extends JFrame {
 		        if (rdbtnNewRadioButton_2.isSelected())
 		            deliver=2.99;
 		        System.out.println(deliver);
-				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
+		        totCost=topping+size+deliver;
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(totCost))+"€");
 		    }
 		});
 		
@@ -362,7 +372,8 @@ public class PicaPasutijums extends JFrame {
 		        if (rdbtnNewRadioButton_2_1.isSelected())
 		            deliver=0.00;
 		        System.out.println(deliver);
-				lblTotalCost.setText("Total cost: " + String.format("%.2f",(topping+size+deliver))+"€");
+		        totCost=topping+size+deliver;
+				lblTotalCost.setText("Total cost: " + String.format("%.2f",(totCost))+"€");
 		    }
 		});
 		
