@@ -1,4 +1,6 @@
-Order 1, Total. 19.48€, Tel. +371, With delivery
-Order 2, Total. 12.48€, Tel. +371, With delivery
-Order 3, Total. 25.48€, Tel. +371, With delivery
-Order 4, Total. 24.98€, Tel. +371 29320332, With delivery
+Order 1, Total. 24.98€, Tel. +371, With delivery
+Order 2, Total. 18.98€, Tel. +371, With delivery
+Order 3, Total. 18.98€, Tel. +371, With delivery
+Order 4, Total. 18.98€, Tel. +371, With delivery
+Order 5, Total. 1.00€, Tel. +371 32322212, No delivery
+Order 6, Total. 18.98€, Tel. +371 23122123, With delivery

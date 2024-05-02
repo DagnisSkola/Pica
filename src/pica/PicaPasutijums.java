@@ -33,6 +33,7 @@ public class PicaPasutijums extends JFrame {
 	public double topping = 0, deliver = 0, size = 0, totCost;
 	private String telNr;
 	private boolean deliveryStatus;
+	private static boolean counter=false;
 	static ArrayList<Object> Picas = new ArrayList<>();
 	private JTextField txtThty;	
 	
@@ -60,6 +61,7 @@ public class PicaPasutijums extends JFrame {
 	                Pica pica = (Pica) o;
 	                System.out.println(pica.displayDetails());
 	            }
+	            dzest("Pizza.txt");
 	        }
 	        lasitajs.close();
 	    } catch (FileNotFoundException e) {
@@ -71,34 +73,41 @@ public class PicaPasutijums extends JFrame {
 	}
 	
 	static void saglabat(ArrayList<Object> Picas) {
-		try {
-			FileWriter fw = new FileWriter("Pizza.txt",true);
-			PrintWriter pw = new PrintWriter(fw);
-
-            for (Object o : Picas) {   	
-                Pica pica = (Pica) o;
-                pw.println(pica.displayDetails());
-            }
-			
-			pw.close();
-			System.out.println("Skaitļi saglabāti failā Pizza.txt");
-		}catch(IOException e) {
-			System.out.println("Radās kļūda saglabājot failā!");
-		}
-	}
-	
-	static void dzest(String failaVards) {
 	    try {
-	        File fails = new File(failaVards);
-	        if (fails.delete()) {
-	            System.out.println("Fails " + failaVards + " ir dzēsts!");
-	        } else {
-	            System.out.println("Fails " + failaVards + " netika atrasts!");
+	        // Delete the existing file
+	        dzest("Pizza.txt");
+
+	        // Create a new FileWriter with append mode set to false
+	        FileWriter fw = new FileWriter("Pizza.txt", false);
+	        PrintWriter pw = new PrintWriter(fw);
+
+	        // Write new data to the file
+	        for (Object o : Picas) {
+	            Pica pica = (Pica) o;
+	            pw.println(pica.displayDetails());
 	        }
-	    } catch (Exception e) {
-	        System.out.println("Radās kļūda dzēšot failu!");
+
+	        // Close the PrintWriter
+	        pw.close();
+
+	        System.out.println("Skaitļi saglabāti failā Pizza.txt");
+	    } catch (IOException e) {
+	        System.out.println("Radās kļūda saglabājot failā!");
 	    }
 	}
+
+	    static void dzest(String failaVards) {
+	        try {
+	            File fails = new File(failaVards);
+	            if (fails.exists() && fails.delete()) {
+	                System.out.println("Fails " + failaVards + " ir dzēsts!");
+	            } else {
+	                System.out.println("Fails " + failaVards + " netika atrasts vai nevarēja tikt dzēsts!");
+	            }
+	        } catch (Exception e) {
+	            System.out.println("Radās kļūda dzēšot failu!");
+	        }
+	    }
 	
 	/**
 	 * Launch the application.
@@ -107,9 +116,12 @@ public class PicaPasutijums extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					if(counter==false) {
+						ielasit("Pizza.txt");
+						counter=true;
+					}
 					PicaPasutijums frame = new PicaPasutijums();
 					frame.setVisible(true);
-		    		ielasit("Pizza.txt");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -358,11 +370,11 @@ public class PicaPasutijums extends JFrame {
 		            int currentPasNr = (Pica.getTPasNr() == 0) ? 1 : (Pica.getTPasNr() + 1);
 		            Picas.add(new Pica(topping, size, telNr, currentDeliveryStatus, currentPasNr, totCost));
 		            StringBuilder str = new StringBuilder("Pizza amount: " + Picas.size() + "\n");
+		            dzest("Pizza.txt");
 		            for (Object o : Picas) {
 		                Pica pica = (Pica) o;
 		                System.out.println(pica.displayDetails());
 		            }
-		            dzest("Pizza.txt");
 		            saglabat(Picas);
 		            PicaNoformejums.Noformejums();
 		            PicaPasutijums.this.setVisible(false);

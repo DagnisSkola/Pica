@@ -78,7 +78,7 @@ public class PicaFrame extends JFrame {
 				ArrayList<Object> Picas = PicaPasutijums.Picas;
 				if (!Picas.isEmpty()) {
 					PicaView.View();
-					PicaFrame.this.setVisible(false);	
+					PicaFrame.this.setVisible(false);
 				} else {
 					PicaNoPica.NoPizza();
 					PicaFrame.this.setVisible(false);	
