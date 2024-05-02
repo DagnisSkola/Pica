@@ -37,7 +37,6 @@ public class PicaPasutijums extends JFrame {
 	private JTextField txtThty;	
 	
 	static ArrayList<Object> ielasit(String failaVards) {
-	    ArrayList<Object> Picas = new ArrayList<>();
 	    try {
 	        File fails = new File(failaVards);
 	        Scanner lasitajs = new Scanner(fails);
