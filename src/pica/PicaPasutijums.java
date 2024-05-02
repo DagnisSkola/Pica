@@ -467,11 +467,15 @@ public class PicaPasutijums extends JFrame {
 		    			lblTel.setForeground(Color.BLACK);
 		    			if(deliver==0.00||deliver==2.99){
 		    				lblDeliver.setForeground(Color.BLACK);
-				    		boolean currentDeliveryStatus = deliveryStatus;
-				    		currentDeliveryStatus = true;
+		    				boolean currentDeliveryStatus;
+		    				if(deliver==0.00) {
+		    					currentDeliveryStatus = false;
+		    				}else {
+		    					currentDeliveryStatus = true;
+		    				}
 				            int currentPasNr = (Pica.getTPasNr() == 0) ? 1 : (Pica.getTPasNr() + 1);
+				            System.out.println("delStat: "+currentDeliveryStatus);
 				            Picas.add(new Pica(topping, size, telNr, currentDeliveryStatus, currentPasNr, totCost));
-				            StringBuilder str = new StringBuilder("Pizza amount: " + Picas.size() + "\n");
 				            dzest("Pizza.txt");
 				            for (Object o : Picas) {
 				                Pica pica = (Pica) o;

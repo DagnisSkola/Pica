@@ -79,10 +79,9 @@ public class PicaNoformejums extends JFrame {
 		lblSize.setBounds(60, 165, 430, 45);
 		contentPane.add(lblSize);	
 		
-		double Delivery = 0;
 		if(Pica.getTDeliver())
-			Delivery = 2.49;
-		JLabel lblDelivery = new JLabel("Delivery: "+Delivery+"€");
+			System.out.println(Pica.getTDeliver());
+			JLabel lblDelivery = new JLabel("Delivery: "+String.format("%.2f",(Pica.getTotCost()-(Pica.getTTopping()+Pica.getTSize())))+"€");
 		lblDelivery.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDelivery.setFont(new Font("Ink Free", Font.BOLD, 25));
 		lblDelivery.setBounds(60, 209, 407, 45);
