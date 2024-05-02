@@ -43,6 +43,7 @@ public class PicaView extends JFrame {
 		setBounds(100, 100, 1020, 502);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);	
 		contentPane.setLayout(null);
