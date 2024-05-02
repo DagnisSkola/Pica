@@ -1,5 +1,6 @@
 package pica;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
@@ -7,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -44,9 +46,14 @@ public class PicaView extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
-
 		setContentPane(contentPane);	
 		contentPane.setLayout(null);
+		
+		ImageIcon backgroundImageIcon = new ImageIcon(getClass().getResource("/noteBack.png"));
+	    JLabel lblBackground = new JLabel(backgroundImageIcon);
+	    lblBackground.setLayout(new BorderLayout());
+	    lblBackground.setBounds(0, 0, 1045, 778);
+	    contentPane.add(lblBackground);
 		
 		ArrayList<Object> Picas = PicaPasutijums.Picas;
 		StringBuilder str = new StringBuilder();
@@ -68,16 +75,19 @@ public class PicaView extends JFrame {
 		lblNewLabel.setBounds(44, 114, 658, 251);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnBack = new JButton("Back");
+		btnBack.setOpaque(false);
+		btnBack.setContentAreaFilled(false);
+		btnBack.setBorderPainted(false);
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PicaFrame.main(null);
 				PicaView.this.setVisible(false);
 			}
 		});
-		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnNewButton.setBounds(440, 383, 111, 53);
-		contentPane.add(btnNewButton);
+		btnBack.setFont(new Font("Ink Free", Font.BOLD, 30));
+		btnBack.setBounds(440, 383, 111, 53);
+		contentPane.add(btnBack);
 		
 		JLabel lblOrders = new JLabel("Orders :");
 		lblOrders.setHorizontalAlignment(SwingConstants.CENTER);
@@ -86,6 +96,7 @@ public class PicaView extends JFrame {
 		contentPane.add(lblOrders);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setOpaque(false);
 		comboBox.setFont(new Font("Ink Free", Font.BOLD, 15));
 	    comboBox.setBounds(735, 132, 155, 40);
 	    for (Object o : Picas) {
@@ -99,8 +110,11 @@ public class PicaView extends JFrame {
 		lblRemove.setBounds(761, 77, 196, 69);
 		contentPane.add(lblRemove);
 		
-		JButton btnNewButton_1 = new JButton("Delete");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.setOpaque(false);
+		btnDelete.setContentAreaFilled(false);
+		btnDelete.setBorderPainted(false);
+		btnDelete.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        String selectedItem = (String) comboBox.getSelectedItem();
 		        if (selectedItem != null) {
@@ -116,8 +130,10 @@ public class PicaView extends JFrame {
 		        PicaView.View();
 		    }
 		});
-		btnNewButton_1.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnNewButton_1.setBounds(891, 132, 103, 40);
-		contentPane.add(btnNewButton_1);
+		btnDelete.setFont(new Font("Ink Free", Font.BOLD, 20));
+		btnDelete.setBounds(891, 132, 103, 40);
+		contentPane.add(btnDelete);
+		
+		contentPane.setComponentZOrder(lblBackground, contentPane.getComponentCount() - 1);
 	}
 }
