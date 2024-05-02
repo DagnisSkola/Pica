@@ -12,6 +12,8 @@ import javax.swing.event.DocumentListener;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
@@ -138,11 +140,26 @@ public class PicaPasutijums extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblPDeliver = new JLabel("");
+		Image imgD = new ImageIcon(this.getClass().getResource("/bike.png")).getImage();
+		lblPDeliver.setIcon(new ImageIcon(imgD));
+		lblPDeliver.setBounds(461, 203, 111, 108);
+		contentPane.add(lblPDeliver);
+		
+		JLabel lblPizza = new JLabel("");
+		Image imgP = new ImageIcon(this.getClass().getResource("/pizza.png")).getImage();
+		lblPizza.setIcon(new ImageIcon(imgP));
+		lblPizza.setBounds(90, 11, 111, 108);
+		contentPane.add(lblPizza);
+		JLabel lblPizza2 = new JLabel("");
+		lblPizza2.setIcon(new ImageIcon(imgP));
+		lblPizza2.setBounds(461, 11, 111, 108);
+		contentPane.add(lblPizza2);
 		
 		ImageIcon backgroundImageIcon = new ImageIcon(getClass().getResource("/noteBack.png"));
 	    JLabel lblBackground = new JLabel(backgroundImageIcon);
 	    lblBackground.setLayout(new BorderLayout());
-	    lblBackground.setBounds(-26, -86, 690, 778);
+	    lblBackground.setBounds(-20, -20, 690, 778);
 	    contentPane.add(lblBackground);
 	    
 		JLabel lblNewLabel = new JLabel("Create an order :");
@@ -526,6 +543,6 @@ public class PicaPasutijums extends JFrame {
 		deliverGroup.add(rbtnYes);
 		deliverGroup.add(rbtnNo);
 		
-		contentPane.setComponentZOrder(lblBackground, contentPane.getComponentCount() - 1); //lblBackground
+		contentPane.setComponentZOrder(lblBackground, contentPane.getComponentCount() - 1);
 	}
 }
