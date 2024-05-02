@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -46,7 +48,7 @@ public class PicaFrame extends JFrame {
 	 */
 	public PicaFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 636);
+		setBounds(100, 100, 500, 668);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(232, 233, 235));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -55,10 +57,16 @@ public class PicaFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		ImageIcon backgroundImageIcon = new ImageIcon(getClass().getResource("/PizzaBackground2.png"));
+	    JLabel backgroundLabel = new JLabel(backgroundImageIcon);
+	    backgroundLabel.setLayout(new BorderLayout());
+	    backgroundLabel.setBounds(0, -73, 690, 778); // Adjust the bounds to cover the entire frame
+	    contentPane.add(backgroundLabel);
+        
 		JLabel lblNewLabel = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/pizza.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/PizzaLogo.png")).getImage();
 		lblNewLabel.setIcon(new ImageIcon(img));
-		lblNewLabel.setBounds(79, 11, 334, 200);
+		lblNewLabel.setBounds(-59, 11, 554, 200);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Create Order");
@@ -66,18 +74,28 @@ public class PicaFrame extends JFrame {
 		btnNewButton.setForeground(new Color(128, 0, 0));
 		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 20));
 		btnNewButton.setToolTipText("");
+		ImageIcon buttonIcon = new ImageIcon(getClass().getResource("/create.png"));
+		btnNewButton.setIcon(buttonIcon);
+		btnNewButton.setOpaque(false);
+		btnNewButton.setContentAreaFilled(false);
+		btnNewButton.setBorderPainted(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PicaPasutijums.Pasutijums();
 				PicaFrame.this.setVisible(false);	
 			}
 		});
-		btnNewButton.setBounds(126, 222, 229, 77);
+		btnNewButton.setBounds(60, 195, 355, 126);
 		contentPane.add(btnNewButton);
 		
 		JButton btnApskattPastijumus = new JButton("View Orders");
 		btnApskattPastijumus.setBackground(new Color(255, 220, 185));
 		btnApskattPastijumus.setForeground(new Color(128, 0, 0));
+		ImageIcon buttonIcon1 = new ImageIcon(getClass().getResource("/view.png"));
+		btnApskattPastijumus.setIcon(buttonIcon1);
+		btnApskattPastijumus.setOpaque(false);
+		btnApskattPastijumus.setContentAreaFilled(false);
+		btnApskattPastijumus.setBorderPainted(false);
 		btnApskattPastijumus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<Object> Picas = PicaPasutijums.Picas;
@@ -92,12 +110,17 @@ public class PicaFrame extends JFrame {
 		});
 		btnApskattPastijumus.setToolTipText("");
 		btnApskattPastijumus.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnApskattPastijumus.setBounds(126, 332, 229, 77);
+		btnApskattPastijumus.setBounds(60, 316, 346, 115);
 		contentPane.add(btnApskattPastijumus);
 		
 		JButton btnIziet = new JButton("Exit");
 		btnIziet.setBackground(new Color(255, 220, 185));
 		btnIziet.setForeground(new Color(128, 0, 0));
+		ImageIcon buttonIcon2 = new ImageIcon(getClass().getResource("/exit.png"));
+		btnIziet.setIcon(buttonIcon2);
+		btnIziet.setOpaque(false);
+		btnIziet.setContentAreaFilled(false);
+		btnIziet.setBorderPainted(false);
 		btnIziet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -105,7 +128,9 @@ public class PicaFrame extends JFrame {
 		});
 		btnIziet.setToolTipText("");
 		btnIziet.setFont(new Font("Ink Free", Font.BOLD, 20));
-		btnIziet.setBounds(126, 442, 229, 77);
+		btnIziet.setBounds(60, 442, 355, 115);
 		contentPane.add(btnIziet);
+		
+		contentPane.setComponentZOrder(backgroundLabel, contentPane.getComponentCount() - 1);
 	}
 }
