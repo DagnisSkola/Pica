@@ -33,7 +33,6 @@ public class PicaPasutijums extends JFrame {
 	public double topping = 0, deliver = 0, size = 0, totCost;
 	private String telNr;
 	private boolean deliveryStatus;
-	private static boolean counter=false;
 	static ArrayList<Object> Picas = new ArrayList<>();
 	private JTextField txtThty;	
 	
@@ -116,10 +115,6 @@ public class PicaPasutijums extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					if(counter==false) {
-						ielasit("Pizza.txt");
-						counter=true;
-					}
 					PicaPasutijums frame = new PicaPasutijums();
 					frame.setVisible(true);
 				} catch (Exception e) {

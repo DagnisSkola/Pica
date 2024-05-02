@@ -19,6 +19,7 @@ public class PicaFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private static boolean counter=false;
 
 	/**
 	 * Launch the application.
@@ -29,6 +30,10 @@ public class PicaFrame extends JFrame {
 				try {
 					PicaFrame frame = new PicaFrame();
 					frame.setVisible(true);
+					if(counter==false) {
+						PicaPasutijums.ielasit("Pizza.txt");
+						counter=true;
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
