@@ -363,7 +363,7 @@ public class PicaPasutijums extends JFrame {
 		JButton btnContinue = new JButton("Continue");
 		btnContinue.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
-		    	if(size>0&&telNr.length()==13) {
+		    	if(size>0&&telNr.length()==12) {
 		    		boolean currentDeliveryStatus = deliveryStatus;
 		            if(deliver > 0)
 		                currentDeliveryStatus = true;
@@ -396,7 +396,7 @@ public class PicaPasutijums extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		txtThty = new JTextField();
-		txtThty.setText("+371 ");
+		txtThty.setText("+371");
 		telNr = txtThty.getText();
 		txtThty.setBounds(439, 135, 150, 23);
 		txtThty.getDocument().addDocumentListener((DocumentListener) new DocumentListener() {
