@@ -14,9 +14,10 @@
 - [x] Pica tiek saglabāta Objektā
 - [x] Sākuma ekrāna otrā poga aizved uz pasūtijumu apskati
 - [x] Pasūtijumu apskates logs parāda visas uzstaisītās picas
-- [ ] Picas tiek saglabātas texta failā, lai parādītos ja programma tiek aizvērta
+- [x] Picas tiek saglabātas texta failā, lai parādītos ja programma tiek aizvērta
 - [x] Sākuma ekrāna trešā poga aizved uz pasūtijumu dzēšanu
 - [x] Pasūtijumu korekti tiek dzēsti
+- [ ] Informēts, kurš no laukiem nav aizpildīts un kādēļ nevar turpināt
 - [ ] Piekopt dizainu
-- [ ] Centrēt logus uz ekrāna vidu
-- [ ] Prezentēt programmu
+- [x] Centrēt logus uz ekrāna vidu
+- [x] Prezentēt programmu
