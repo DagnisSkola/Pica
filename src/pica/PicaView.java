@@ -79,11 +79,11 @@ public class PicaView extends JFrame {
 		btnNewButton.setBounds(440, 383, 111, 53);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("Orders :");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Ink Free", Font.BOLD, 35));
-		lblNewLabel_1.setBounds(274, 23, 451, 69);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblOrders = new JLabel("Orders :");
+		lblOrders.setHorizontalAlignment(SwingConstants.CENTER);
+		lblOrders.setFont(new Font("Ink Free", Font.BOLD, 35));
+		lblOrders.setBounds(274, 23, 451, 69);
+		contentPane.add(lblOrders);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Ink Free", Font.BOLD, 15));
@@ -93,11 +93,11 @@ public class PicaView extends JFrame {
 	    }
 	    contentPane.add(comboBox);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Remove :");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setFont(new Font("Ink Free", Font.BOLD, 25));
-		lblNewLabel_1_1.setBounds(761, 77, 196, 69);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel lblRemove = new JLabel("Remove :");
+		lblRemove.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRemove.setFont(new Font("Ink Free", Font.BOLD, 25));
+		lblRemove.setBounds(761, 77, 196, 69);
+		contentPane.add(lblRemove);
 		
 		JButton btnNewButton_1 = new JButton("Delete");
 		btnNewButton_1.addActionListener(new ActionListener() {

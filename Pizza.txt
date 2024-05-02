@@ -1,4 +1,3 @@
 Order 1, Total. 18.98€, Tel. +37123233232, With delivery
 Order 2, Total. 24.98€, Tel. +37132323232, With delivery
-Order 3, Total. 19.48€, Tel. +37134231123, With delivery
-Order 4, Total. 24.98€, Tel. +37123442321, With delivery
+Order 3, Total. 19.48€, Tel. +37132323232, With delivery
