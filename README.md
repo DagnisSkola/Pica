@@ -17,7 +17,13 @@
 - [x] Picas tiek saglabātas texta failā, lai parādītos ja programma tiek aizvērta
 - [x] Sākuma ekrāna trešā poga aizved uz pasūtijumu dzēšanu
 - [x] Pasūtijumu korekti tiek dzēsti
-- [ ] Informēts, kurš no laukiem nav aizpildīts un kādēļ nevar turpināt
-- [ ] Piekopt dizainu
+- [x] Informēts, kurš no laukiem nav aizpildīts un kādēļ nevar turpināt
+- [x] Piekopt dizainu
 - [x] Centrēt logus uz ekrāna vidu
 - [x] Prezentēt programmu
+
+Todo:
+PicaView klasē ielikt koda rindiņas:
+  PicaPasutijums.dzest("Pizza.txt");
+  PicaPasutijums.saglabat(Picas);
+lai pareizi strādātu picu apskate.
